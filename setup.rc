@@ -1,0 +1,22 @@
+# Installer script for sysconf layer decode.platform    -*- shell-script -*-
+
+# Install required Debian packages
+_packages=
+_packages="$_packages inetutils-ping nano"
+
+sysconf_require_packages $_packages
+
+# "decode" UNIX account
+grep -q ^decode: /etc/passwd || {
+    useradd -m -s /bin/bash decode
+    mkdir -p ~decode/.ssh
+    chmod 750 ~decode/.ssh
+    chown -R decode:decode ~decode
+
+    sysconf-etc.d update -v decode.ssh_authorized_keys
+}
+if [ ! -d /var/log/decode ]; then
+    mkdir /var/log/decode
+    chown decode /var/log/decode
+    chmod 770 /var/log/decode
+fi
