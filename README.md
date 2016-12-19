@@ -1,4 +1,4 @@
-# SYSCONF profile for an MongoDB service
+# SYSCONF profile for a MongoDB service
 
 This is a [SYSCONF](https://github.com/geonef/sysconf.base)
 profile. SYSCONF is a method and tool to manage custom system files
