@@ -1,0 +1,4 @@
+/etc/mongodb.conf.d, part of sysconf.mongodb
+
+The files in this directory ending with "mongodb.conf" are concatenated
+into /etc/mongodb.conf by sysconf-etc.d
